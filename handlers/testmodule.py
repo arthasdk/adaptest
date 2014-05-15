@@ -7,6 +7,7 @@ import time
 import logging
 import math
 import globals
+from random import randint
 
 #import everthing :P cuz soon , we are gonna need more than a few of the dbhelper functions 
 from models.dbhelper import *
@@ -224,7 +225,7 @@ def DisplayResultPg85(self,theta):
 def getThetaResult(user):
 	params=fetchAllQuestionsParamsTestModule(user)
 	logging.info('\nParams @getThetaResult :%s'%params)
-	theta_S=1
+	theta_S=1.0
 	while True:
 		#time.sleep(1) #since db operations are going to happen its beneficial to waste some time here #notWorthIt
 		theta_S_1=getNewTheta(params,theta_S)

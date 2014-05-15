@@ -52,7 +52,6 @@ class AddQuestion2(webapp2.RequestHandler):
 				a.question=putQ
 				ans.append(a)
 			try:
-				putQ=q.put()
 				for i in range(4):
 					ans[i].put()
 				self.response.out.write("S")

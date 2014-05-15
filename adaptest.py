@@ -11,6 +11,7 @@ import handlers.computation
 import handlers.parametercalculator
 import handlers.testmodule
 import handlers.addquestion2
+import handlers.quickTest
 import test.unittestinghandler
 
 ######################
@@ -27,6 +28,7 @@ ParameterCalculatorWorker=handlers.parametercalculator.ParameterCalculatorWorker
 TestModule=handlers.testmodule.TestModule
 UnitTestingHandler=test.unittestinghandler.UnitTestingHandler
 MultiDummyQuestionInserver=handlers.addquestion2.AddQuestion2
+QuickTestHandler=handlers.quickTest.quickTest
 ######################
 
 app=webapp2.WSGIApplication(
@@ -43,6 +45,7 @@ app=webapp2.WSGIApplication(
 ('/test',TestModule),
 ('/unittest',UnitTestingHandler),
 ('/mInsert',MultiDummyQuestionInserver),
+('/qTest',QuickTestHandler),
 ],
 debug=True
 )

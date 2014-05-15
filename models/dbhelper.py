@@ -40,9 +40,18 @@ def getPassedAnswer():
 	query=Answer.query(Answer.answer=='~pass~')
 	if query.count()==1:
 		return query.get()
+	#elif query.count()==0:
+	else:
+		#just in case the pass option does not exist in db, make it then call it again !!!!
+		a=Answer()
+		a.answer='~pass'
+		a.correct=None
+		a.question=None
+		a.put()
+		return a
 	#else:
-	#	raise InvalidIdError(a_id)
-	
+	#	raise InvalidIdError('Something wrong with pass!')
+
 
 def fetchAnswers(q_id):
 	question=None
@@ -190,7 +199,7 @@ def fetchAllQuestionsParamsTestModule(user):
 			for instance in query:
 				currentQuestion=instance.question
 				question=fetchQuestion(currentQuestion.id())
-				a=1.0
+				a=(question.a)
 				b=(question.b)
 				c=(question.c)
 				params.append(a)
