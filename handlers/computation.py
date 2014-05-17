@@ -23,9 +23,17 @@ interval_a=0.1
 interval_b=0.1
 
 def calculateP(theta,a,b,c):
-	k=-a*(theta-b)
+	k=1.0+math.exp(-a*(theta-b))
+	P=0.0;
 	#logging.info('k=%s'%k)
-	P=c+(1.0-c)/(1.0+math.exp(k))
+	if k==0:
+		P=1.0
+	else:
+		P=c+(1.0-c)/k
+		if P>1:
+			P=1.0
+		elif P<0:
+			P=0.0
 	return P
 
 def calculateKhiTerm(totalAttemptees,theta,observedP,a,b,c):

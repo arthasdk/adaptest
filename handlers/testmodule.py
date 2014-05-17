@@ -77,7 +77,7 @@ def evalNextQuestion(u,user,previousTheta):
 def getNewTheta(params,theta_S):
 	sumNumerator=0
 	sumDenominator=0.00000001	#just incase the for loop does not get executed!
-	logging.info('\nInside getNewTheta %s'%theta_S)
+	#logging.info('\nInside getNewTheta %s'%theta_S)
 	for x in range(0, int(len(params)/4)):
 		P=float(calculateP(theta_S,params[x*4],params[x*4+1],params[x*4+2]))
 		#sumNumerator=sumNumerator-params[x*4]*(params[x*4+3]-P) #original formula :/
